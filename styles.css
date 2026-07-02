@@ -3387,4 +3387,277 @@ ul {
     padding: 10px;
   }
 
+  body {
+    background-size: 24px 24px;
+  }
+
+  .shell {
+    width: min(100% - 20px, 520px);
+    padding: 14px 0 32px;
+  }
+
+  .hero {
+    gap: 12px;
+    padding: 14px;
+    background: rgba(255, 250, 241, 0.82);
+    border: 1px solid var(--line);
+    border-bottom: 2px solid var(--dark);
+    border-radius: 8px;
+  }
+
+  .eyebrow {
+    margin-bottom: 8px;
+    font-size: 11px;
+  }
+
+  h1 {
+    font-size: clamp(31px, 10.5vw, 43px);
+    line-height: 1.03;
+  }
+
+  .lead {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.62;
+  }
+
+  .vehicle-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 8px;
+    align-items: center;
+    min-height: 0;
+    padding: 14px;
+  }
+
+  .vehicle-card span,
+  .vehicle-card small {
+    grid-column: 1 / -1;
+  }
+
+  .vehicle-card strong {
+    margin: 0;
+    font-size: 30px;
+  }
+
+  .vehicle-card .vehicle-link {
+    margin-top: 0;
+    padding: 8px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .vehicle-card .vehicle-link + .vehicle-link {
+    margin-top: 0;
+  }
+
+  .intent-router,
+  .beginner-guide,
+  .onboarding-tasks,
+  .risk-board,
+  .search-panel {
+    margin: 14px 0;
+    padding: 14px;
+  }
+
+  .intent-head,
+  .section-head {
+    margin-bottom: 12px;
+    gap: 8px;
+  }
+
+  .intent-head h2,
+  .section-head h2 {
+    font-size: 30px;
+    line-height: 1.05;
+  }
+
+  .section-head p:not(.eyebrow),
+  .search-copy p:not(.eyebrow) {
+    font-size: 13px;
+    line-height: 1.58;
+  }
+
+  .intent-grid,
+  .guide-grid,
+  .task-grid,
+  .risk-board-grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 10px;
+    margin-inline: -14px;
+    padding: 0 14px 10px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 14px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(31, 36, 39, 0.35) transparent;
+  }
+
+  .intent-grid::-webkit-scrollbar,
+  .guide-grid::-webkit-scrollbar,
+  .task-grid::-webkit-scrollbar,
+  .risk-board-grid::-webkit-scrollbar,
+  .search-examples::-webkit-scrollbar,
+  .chip-tabs::-webkit-scrollbar,
+  .chip-panel::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .intent-grid::-webkit-scrollbar-thumb,
+  .guide-grid::-webkit-scrollbar-thumb,
+  .task-grid::-webkit-scrollbar-thumb,
+  .risk-board-grid::-webkit-scrollbar-thumb,
+  .search-examples::-webkit-scrollbar-thumb,
+  .chip-tabs::-webkit-scrollbar-thumb,
+  .chip-panel::-webkit-scrollbar-thumb {
+    background: rgba(31, 36, 39, 0.28);
+    border-radius: 999px;
+  }
+
+  .intent-grid::after,
+  .guide-grid::after,
+  .task-grid::after,
+  .risk-board-grid::after {
+    content: "";
+    flex: 0 0 4px;
+  }
+
+  .intent-card,
+  .guide-card,
+  .task-card,
+  .risk-board-grid > .box,
+  .risk-column {
+    flex: 0 0 min(82vw, 340px);
+    scroll-snap-align: start;
+  }
+
+  .intent-card {
+    min-height: 164px;
+    padding: 14px;
+  }
+
+  .intent-card strong {
+    font-size: 22px;
+  }
+
+  .intent-card p,
+  .guide-card p,
+  .risk-column p {
+    line-height: 1.52;
+  }
+
+  .guide-card {
+    min-height: 214px;
+  }
+
+  .guide-card h3 {
+    margin-top: 12px;
+    font-size: 22px;
+  }
+
+  .task-grid {
+    overflow-x: auto;
+  }
+
+  .task-card {
+    min-width: 0;
+  }
+
+  .task-card h3 {
+    font-size: 21px;
+  }
+
+  .task-card dl {
+    gap: 7px;
+  }
+
+  .task-card dd {
+    font-size: 12px;
+  }
+
+  .risk-board-grid > .box {
+    width: min(82vw, 340px);
+  }
+
+  .risk-column {
+    width: min(82vw, 340px);
+    min-width: 0;
+  }
+
+  .risk-links {
+    gap: 7px;
+  }
+
+  .search-panel {
+    position: relative;
+    border-color: rgba(31, 36, 39, 0.2);
+    box-shadow: 0 10px 28px rgba(31, 36, 39, 0.08);
+  }
+
+  .search-panel label {
+    font-size: 21px;
+  }
+
+  .search-row {
+    grid-template-columns: 1fr;
+  }
+
+  .search-row button {
+    min-height: 42px;
+  }
+
+  input {
+    padding: 13px 14px;
+    font-size: 15px;
+  }
+
+  .search-examples {
+    flex-wrap: nowrap;
+    margin-inline: -14px;
+    padding: 0 14px 4px;
+    overflow-x: auto;
+  }
+
+  .search-examples span,
+  .search-examples button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .chip-tabs {
+    flex-wrap: nowrap;
+    margin-inline: -10px;
+    padding: 0 10px 2px;
+    overflow-x: auto;
+  }
+
+  .chip-panel {
+    flex-wrap: nowrap;
+    margin-inline: -10px;
+    padding: 8px 10px;
+    overflow-x: auto;
+  }
+
+  .chip {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .list,
+  .detail {
+    min-height: 0;
+  }
+
+  .result-guide {
+    padding: 13px;
+  }
+
+  .intent-question-grid,
+  .guide-signal-grid {
+    grid-template-columns: 1fr;
+  }
+
 }
