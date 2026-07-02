@@ -3909,6 +3909,42 @@ function renderRedSafetyPanel(issue) {
   `;
 }
 
+function renderActionSummary(issue) {
+  const operation = getOperation(issue);
+  const nextItems = getNextStepItems(issue).slice(0, 3);
+  return `
+    <section class="action-summary ${riskClass(issue)}" aria-label="先看这几件事">
+      <div class="action-summary-head">
+        <span>先看这 4 件事</span>
+        <strong>${escapeHtml(issue.risk === "red" ? "先判断能不能继续开，再处理功能" : "先定位位置，再照着做")}</strong>
+      </div>
+      <div class="action-summary-grid">
+        <article>
+          <b>危险程度</b>
+          <p>${escapeHtml(riskText[issue.risk])}</p>
+        </article>
+        <article>
+          <b>你要看哪里</b>
+          <p>${escapeHtml(operation.where)}</p>
+        </article>
+        <article>
+          <b>马上怎么做</b>
+          <p>${escapeHtml((issue.steps || [issue.quickAnswer])[0] || issue.quickAnswer)}</p>
+        </article>
+        <article>
+          <b>相关入口</b>
+          <div class="action-summary-links">
+            ${nextItems.map((item) => item.href
+              ? `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>`
+              : `<button type="button" data-id="${escapeHtml(item.id)}">${escapeHtml(item.label)}</button>`
+            ).join("")}
+          </div>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
 function renderDetail(issue) {
   activeIssue = issue;
   if (!els.detail) return;
@@ -3920,6 +3956,7 @@ function renderDetail(issue) {
       <span class="pill ${riskClass(issue)}">${escapeHtml(riskText[issue.risk])}</span>
       <span class="pill">${escapeHtml(issue.category)}</span>
     </div>
+    ${renderActionSummary(issue)}
     ${isRed ? renderRedSafetyPanel(issue) : renderBeginnerPanel(issue)}
     <section class="answer">${escapeHtml(issue.quickAnswer)}</section>
     ${renderManualRefs(issue)}

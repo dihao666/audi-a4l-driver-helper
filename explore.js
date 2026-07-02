@@ -856,6 +856,14 @@ function setPanel(zoneId) {
     <p class="eyebrow">${mode === "interior" ? "车内区域" : "当前区域"}</p>
     <h2>${zone.title}</h2>
     <p>${zone.description}</p>
+    <section class="zone-coach-card" aria-label="新手区域讲解">
+      <span>新手怎么看</span>
+      <div class="zone-coach-grid">
+        <article><b>先看哪里</b><p>${zone.parts.slice(0, 3).join(" / ")}</p></article>
+        <article><b>点什么有用</b><p>点照片或示意图上的编号，再从下方索引查看名称和对应教程。</p></article>
+        <article><b>怎么离开</b><p>用“${backLabel}”回到大范围，再切换到其他区域。</p></article>
+      </div>
+    </section>
     <div class="part-list">
       ${zone.parts.map((part) => `<button type="button" class="part-pill">${part}</button>`).join("")}
     </div>
