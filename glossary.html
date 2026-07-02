@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>小白词典 · 奥迪 A4L 新手排障助手</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero glossary-hero">
+        <div>
+          <p class="eyebrow">Beginner Glossary · 车内地图</p>
+          <h1>不懂术语，先来这里查</h1>
+          <p class="lead">这里专门解释“选档杆、中控台、MMI、踩住制动踏板、按钮灯亮”这类基础词。问题页只放最关键解释，更多细节统一放在这里。</p>
+        </div>
+        <div class="vehicle-card">
+          <span>词典范围</span>
+          <strong>A4L</strong>
+          <small>位置词 / 动作词 / 功能词 / 状态词</small>
+        </div>
+      </section>
+
+      <section class="search-panel">
+        <label for="glossaryQuery">搜索不懂的词</label>
+        <div class="search-row">
+          <input id="glossaryQuery" type="search" placeholder="例如：选档杆、MMI、按钮灯亮" autocomplete="off" />
+          <a class="nav-button" href="./index.html">返回排障</a>
+        </div>
+        <div class="glossary-tools">
+          <div id="categoryChips" class="chips"></div>
+          <p id="glossarySummary" class="glossary-summary"></p>
+        </div>
+      </section>
+
+      <section class="area-map">
+        <div>
+          <h2>车内区域地图</h2>
+          <p>先用这张图建立方向感：按钮、屏幕、仪表、机舱和后备厢分别大概在哪儿。</p>
+        </div>
+        <img src="./assets/new-driver/car-area-map.svg" alt="车内区域小白地图" />
+      </section>
+
+      <section id="glossaryRoot" class="glossary-page"></section>
+    </main>
+
+    <script src="./glossary.js?v=related-lessons-3"></script>
+  </body>
+</html>

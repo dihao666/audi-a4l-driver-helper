@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>奥迪 A4L 新手排障助手</title>
+    <link rel="stylesheet" href="./styles.css?v=hide-coverage-debug" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Audi A4L Manual Pilot · 本地原型</p>
+          <h1>把“车怎么怪怪的”翻译成下一步该怎么做</h1>
+          <p class="lead">面向新手司机的场景化排障助手。第一版基于你桌面的奥迪 A4L 使用说明书，先跑通后视镜、胎压、雨刮、车窗和应急用品等高频场景。</p>
+        </div>
+        <div class="vehicle-card">
+          <span>当前车库</span>
+          <strong>奥迪 A4L</strong>
+          <small>年款 / 配置待确认</small>
+          <a class="vehicle-link" href="./explore.html">打开 3D 探索</a>
+          <a class="vehicle-link" href="./glossary.html">打开小白词典</a>
+        </div>
+      </section>
+
+      <section class="intent-router" aria-label="你现在属于哪种情况">
+        <div class="intent-head">
+          <p class="eyebrow">Start Here</p>
+          <h2>你现在属于哪种情况？</h2>
+        </div>
+        <div class="intent-grid">
+          <a class="intent-card learn" href="#learnMode">
+            <span>01</span>
+            <strong>我想学会用车</strong>
+            <p>没有故障，只想先把常用操作练明白。</p>
+            <b>看上手任务</b>
+          </a>
+          <a class="intent-card problem" href="#searchMode">
+            <span>02</span>
+            <strong>我遇到问题了</strong>
+            <p>直接描述现象，比如灯亮了、按键没反应、某个功能不会用。</p>
+            <b>去搜索排查</b>
+          </a>
+          <a class="intent-card danger" href="#riskMode">
+            <span>03</span>
+            <strong>我不知道严不严重</strong>
+            <p>先按红黄绿判断能不能继续开，避免危险操作。</p>
+            <b>先看风险</b>
+          </a>
+        </div>
+      </section>
+
+      <section class="beginner-guide" aria-label="新手上车导航">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Beginner Flow</p>
+            <h2>新手上车 6 件事</h2>
+          </div>
+          <p>不知道该搜什么时，从场景开始。每张卡都能直接打开对应教程，也能跳到 3D 里的相关位置。</p>
+        </div>
+
+        <div class="guide-grid">
+          <article class="guide-card">
+            <span>01</span>
+            <h3>上车先调什么</h3>
+            <p>座椅、方向盘、后视镜、安全带，先把人和视线调对。</p>
+            <div class="guide-actions">
+              <a href="./index.html?query=%E5%BA%A7%E6%A4%85%E6%80%8E%E4%B9%88%E8%B0%83" data-query="座椅怎么调">座椅</a>
+              <a href="./index.html?query=%E6%96%B9%E5%90%91%E7%9B%98%E6%80%8E%E4%B9%88%E8%B0%83" data-query="方向盘怎么调">方向盘</a>
+              <a href="./index.html?query=%E5%90%8E%E8%A7%86%E9%95%9C%E4%B8%8D%E8%87%AA%E5%8A%A8%E6%89%93%E5%BC%80" data-query="后视镜不自动打开">后视镜</a>
+              <a href="./explore.html?zone=door">看驾驶员车门</a>
+            </div>
+          </article>
+
+          <article class="guide-card">
+            <span>02</span>
+            <h3>准备开走</h3>
+            <p>先认清 P/R/N/D、电子手刹、自动驻车和灯光 AUTO。</p>
+            <div class="guide-actions">
+              <a href="./index.html?query=P%E6%A1%A3%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D" data-query="P档是什么意思">P/R/N/D</a>
+              <a href="./index.html?query=%E7%94%B5%E5%AD%90%E6%89%8B%E5%88%B9%E6%80%8E%E4%B9%88%E7%94%A8" data-query="电子手刹怎么用">电子手刹</a>
+              <a href="./index.html?query=%E8%BD%A6%E7%81%AFAUTO" data-query="车灯AUTO">灯光 AUTO</a>
+              <a href="./explore.html?mode=interior&zone=console">看选档杆区域</a>
+            </div>
+          </article>
+
+          <article class="guide-card">
+            <span>03</span>
+            <h3>停车和倒车</h3>
+            <p>倒车影像、雷达、双闪、后备厢，先确认周围安全。</p>
+            <div class="guide-actions">
+              <a href="./index.html?query=%E5%80%92%E8%BD%A6%E5%BD%B1%E5%83%8F%E6%B2%A1%E5%8F%8D%E5%BA%94" data-query="倒车影像没反应">倒车影像</a>
+              <a href="./index.html?query=%E5%8F%8C%E9%97%AA%E5%9C%A8%E5%93%AA%E9%87%8C" data-query="双闪在哪里">双闪</a>
+              <a href="./index.html?query=%E5%90%8E%E5%A4%87%E5%8E%A2%E6%89%93%E4%B8%8D%E5%BC%80" data-query="后备厢打不开">后备厢</a>
+              <a href="./explore.html?zone=trunk">看车尾</a>
+            </div>
+          </article>
+
+          <article class="guide-card">
+            <span>04</span>
+            <h3>仪表亮灯了</h3>
+            <p>先分颜色和风险：胎压、机油、冷却液、安全带、保养提醒。</p>
+            <div class="guide-actions">
+              <a href="./index.html?query=%E8%83%8E%E5%8E%8B%E7%81%AF%E4%BA%AE%E4%BA%86" data-query="胎压灯亮了">胎压灯</a>
+              <a href="./index.html?query=%E6%9C%BA%E6%B2%B9%E7%81%AF%E4%BA%AE%E4%BA%86" data-query="机油灯亮了">机油灯</a>
+              <a href="./index.html?query=%E5%86%B7%E5%8D%B4%E6%B6%B2%E6%8F%90%E7%A4%BA" data-query="冷却液提示">冷却液</a>
+              <a href="./explore.html?mode=interior&zone=steering">看仪表</a>
+            </div>
+          </article>
+
+          <article class="guide-card">
+            <span>05</span>
+            <h3>我要加东西</h3>
+            <p>加油、玻璃水、机油和冷却液，先找对位置再操作。</p>
+            <div class="guide-actions">
+              <a href="./index.html?query=%E6%B2%B9%E7%AE%B1%E7%9B%96%E6%89%93%E4%B8%8D%E5%BC%80" data-query="油箱盖打不开">加油</a>
+              <a href="./index.html?query=%E5%8A%A0%E7%8E%BB%E7%92%83%E6%B0%B4" data-query="加玻璃水">玻璃水</a>
+              <a href="./index.html?query=%E6%9C%BA%E6%B2%B9%E7%81%AF%E4%BA%AE%E4%BA%86" data-query="机油灯亮了">机油</a>
+              <a href="./explore.html?zone=hood">看发动机舱</a>
+            </div>
+          </article>
+
+          <article class="guide-card">
+            <span>06</span>
+            <h3>车出问题了</h3>
+            <p>打不着火、搭电、拖车、三角牌，先保护人再处理车。</p>
+            <div class="guide-actions">
+              <a href="./index.html?query=%E6%90%AD%E7%94%B5" data-query="搭电">搭电/拖车</a>
+              <a href="./index.html?query=%E4%B8%89%E8%A7%92%E7%89%8C%E5%9C%A8%E5%93%AA%E9%87%8C" data-query="三角牌在哪里">三角牌</a>
+              <a href="./index.html?query=%E9%92%A5%E5%8C%99%E6%B2%A1%E7%94%B5" data-query="钥匙没电">钥匙没电</a>
+              <a href="./explore.html?zone=trunk">看应急物品</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="onboarding-tasks" id="learnMode" aria-label="上手任务模式">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Coach Mode</p>
+            <h2>今天先学会这 5 件事</h2>
+          </div>
+          <p>不是出故障才来查。完全新手可以按任务练一遍：先知道它是什么、在哪儿、怎么做，再看做到什么样算成功。</p>
+        </div>
+        <div class="task-grid" id="onboardingTasks"></div>
+      </section>
+
+      <section class="risk-board" id="riskMode" aria-label="先判断能不能继续开">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Safety First</p>
+            <h2>先判断能不能继续开</h2>
+          </div>
+          <p>如果不知道该搜什么，先按危险程度看：红色先停车求助，黄色停车后谨慎处理，绿色通常可以先自查。</p>
+        </div>
+        <div class="risk-board-grid" id="riskBoard"></div>
+      </section>
+
+      <section class="coverage-board dev-only" id="coverageMode" aria-label="内容覆盖看板" hidden>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Coverage Map</p>
+            <h2>现在覆盖到哪儿了</h2>
+          </div>
+          <p>不是继续盲目加内容，而是先看这个原型已经覆盖哪些用车场景、哪些还缺、哪些适合接 3D 或实车照片。</p>
+        </div>
+        <div class="coverage-summary" id="coverageSummary"></div>
+        <div class="coverage-grid" id="coverageBoard"></div>
+        <div class="coverage-audit" id="coverageAudit"></div>
+      </section>
+
+      <section class="search-panel" id="searchMode" aria-label="问题搜索">
+        <div class="search-copy">
+          <div>
+            <p class="eyebrow">Problem Search</p>
+            <label for="query">直接说现象，不用懂术语</label>
+          </div>
+          <p>可以像聊天一样输入：哪里不动、哪个灯亮、什么按钮没反应。系统会先判断危险程度，再给你对应教程。</p>
+        </div>
+        <div class="search-row">
+          <input id="query" type="search" placeholder="例如：玻璃起雾了 / 倒车屏幕没出来 / 后排车窗按不动" autocomplete="off" />
+          <button id="clearBtn" type="button">清空</button>
+        </div>
+        <div class="search-examples">
+          <span>不会描述也可以点：</span>
+          <button type="button" data-query="仪表灯亮了">仪表灯亮了</button>
+          <button type="button" data-query="看不清玻璃">看不清玻璃</button>
+          <button type="button" data-query="按键没反应">按键没反应</button>
+        </div>
+        <div class="chips" id="chips"></div>
+      </section>
+
+      <section class="layout">
+        <aside class="list" aria-label="问题列表">
+          <div class="list-head">
+            <span>匹配结果</span>
+            <b id="resultCount">0</b>
+          </div>
+          <div id="resultGuide"></div>
+          <div id="issueList"></div>
+        </aside>
+
+        <article class="detail" id="detail" aria-live="polite"></article>
+      </section>
+    </main>
+
+    <script src="./app.js?v=hide-coverage-debug"></script>
+  </body>
+</html>

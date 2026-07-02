@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">车内区域小白地图</title>
+  <desc id="desc">展示驾驶员车门、方向盘和仪表、中控屏、选档杆和中控台、发动机舱、后备厢的大概位置。</desc>
+  <rect width="980" height="560" fill="#fffaf1"/>
+  <rect x="0" y="0" width="980" height="58" fill="#1f2427"/>
+  <text x="28" y="37" fill="#fffaf1" font-size="24" font-weight="700" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">小白先看这张：车内常见位置在哪里</text>
+
+  <g transform="translate(60 92)">
+    <rect x="120" y="55" width="520" height="300" rx="44" fill="#f4eadb" stroke="#1f2427" stroke-width="4"/>
+    <path d="M190 55 L115 110 L115 300 L190 355" fill="none" stroke="#1f2427" stroke-width="4"/>
+    <path d="M570 55 L665 120 L665 290 L570 355" fill="none" stroke="#1f2427" stroke-width="4"/>
+    <rect x="286" y="48" width="190" height="72" rx="12" fill="#fff" stroke="#d8d1c7" stroke-width="3"/>
+    <text x="326" y="92" fill="#1f2427" font-size="20" font-weight="700" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">中控屏</text>
+
+    <circle cx="240" cy="168" r="56" fill="#fff" stroke="#c9162d" stroke-width="6"/>
+    <circle cx="240" cy="168" r="32" fill="none" stroke="#c9162d" stroke-width="5"/>
+    <text x="194" y="248" fill="#c9162d" font-size="18" font-weight="700" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">方向盘</text>
+    <text x="194" y="274" fill="#6d665e" font-size="15" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">后面是仪表</text>
+
+    <rect x="350" y="150" width="86" height="170" rx="28" fill="#fff" stroke="#2f6f9f" stroke-width="6"/>
+    <circle cx="393" cy="202" r="24" fill="#2f6f9f"/>
+    <rect x="372" y="242" width="42" height="58" rx="12" fill="#2f6f9f"/>
+    <text x="326" y="350" fill="#2f6f9f" font-size="18" font-weight="700" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">选档杆 / 中控台</text>
+
+    <rect x="123" y="84" width="54" height="240" rx="16" fill="#fff" stroke="#387a4f" stroke-width="6"/>
+    <circle cx="151" cy="136" r="12" fill="#387a4f"/>
+    <circle cx="151" cy="180" r="12" fill="#387a4f"/>
+    <circle cx="151" cy="224" r="12" fill="#387a4f"/>
+    <text x="0" y="162" fill="#387a4f" font-size="18" font-weight="700" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">驾驶员车门</text>
+    <text x="6" y="188" fill="#6d665e" font-size="15" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">车窗/后视镜按钮</text>
+
+    <rect x="210" y="-16" width="330" height="42" rx="18" fill="#fff" stroke="#c8912c" stroke-width="4"/>
+    <text x="312" y="12" fill="#9a6500" font-size="18" font-weight="700" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">发动机舱在车头</text>
+
+    <rect x="238" y="382" width="270" height="48" rx="18" fill="#fff" stroke="#c8912c" stroke-width="4"/>
+    <text x="314" y="414" fill="#9a6500" font-size="18" font-weight="700" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">后备厢在车尾</text>
+  </g>
+
+  <g transform="translate(760 100)">
+    <rect x="0" y="0" width="170" height="330" rx="12" fill="#fff" stroke="#d8d1c7" stroke-width="2"/>
+    <text x="18" y="36" fill="#1f2427" font-size="20" font-weight="700" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">怎么用这张图</text>
+    <text x="18" y="78" fill="#6d665e" font-size="15" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">1. 先判断词是</text>
+    <text x="18" y="102" fill="#6d665e" font-size="15" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">   位置、按钮还是屏幕。</text>
+    <text x="18" y="142" fill="#6d665e" font-size="15" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">2. 找实体按钮时</text>
+    <text x="18" y="166" fill="#6d665e" font-size="15" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">   先看门板/中控台。</text>
+    <text x="18" y="206" fill="#6d665e" font-size="15" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">3. 找提示灯时</text>
+    <text x="18" y="230" fill="#6d665e" font-size="15" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">   先看方向盘后方仪表。</text>
+    <text x="18" y="270" fill="#6d665e" font-size="15" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">4. 加油/玻璃水</text>
+    <text x="18" y="294" fill="#6d665e" font-size="15" font-family="Noto Sans SC, Microsoft YaHei, sans-serif">   多在车外或机舱。</text>
+  </g>
+</svg>

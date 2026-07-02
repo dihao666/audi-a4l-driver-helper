@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>奥迪 A4L 3D 新手探索</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell explore-shell">
+      <section class="explore-hero">
+        <div>
+          <p class="eyebrow">Audi A4L 3D Explorer · 简化原型</p>
+          <h1>先知道它在哪，再学怎么用</h1>
+          <p class="lead">旋转车辆、点击区域、查看零件名称。第一版用简化 3D 跑通交互，重点区域逐步替换成实拍照片和结构示意。</p>
+        </div>
+        <div class="explore-actions">
+          <a class="nav-button" href="./index.html">返回搜索助手</a>
+          <button class="nav-button" id="enterInteriorBtn" type="button">进入车内</button>
+        </div>
+      </section>
+
+      <section class="explore-layout">
+        <div class="viewer-card">
+          <div id="carViewer" class="car-viewer" aria-label="简化 3D 车辆探索区"></div>
+          <div class="viewer-toolbar">
+            <button class="chip active" type="button" data-view="exterior">车外 360</button>
+            <button class="chip" type="button" data-view="interior">进入车内</button>
+            <button class="chip" type="button" id="resetCameraBtn">回到总览</button>
+          </div>
+        </div>
+
+        <aside class="zone-panel" id="zonePanel" aria-live="polite">
+          <p class="eyebrow">当前区域</p>
+          <h2>车外总览</h2>
+          <p>拖动画面旋转车辆，点击发光区域查看说明。外部区域先覆盖后视镜、驾驶员车门、轮胎、油箱盖、后备厢和发动机舱。</p>
+          <div class="part-list" id="partList"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="./explore.js?v=phone-blur-20260702"></script>
+  </body>
+</html>
