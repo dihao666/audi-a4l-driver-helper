@@ -1013,6 +1013,86 @@ h1 {
   background: #fff3dc;
 }
 
+.zone-study-path,
+.zone-goals {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 12px;
+  background: rgba(255, 250, 241, 0.78);
+  border: 1px solid rgba(31, 36, 39, 0.1);
+  border-radius: 8px;
+}
+
+.zone-study-path > span,
+.zone-goals > span {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+}
+
+.zone-study-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.zone-study-steps article {
+  padding: 10px;
+  background: white;
+  border: 1px solid rgba(31, 36, 39, 0.1);
+  border-radius: 8px;
+}
+
+.zone-study-steps article.available {
+  box-shadow: inset 3px 0 0 var(--gold);
+}
+
+.zone-study-steps article.muted {
+  opacity: 0.72;
+}
+
+.zone-study-steps b,
+.zone-goal-grid strong {
+  display: block;
+  color: var(--dark);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.zone-study-steps p,
+.zone-goal-grid small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.zone-goal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.zone-goal-grid a {
+  min-width: 0;
+  padding: 10px;
+  color: var(--dark);
+  background: white;
+  border: 1px solid rgba(31, 36, 39, 0.12);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.zone-goal-grid a:hover,
+.zone-goal-grid a:focus-visible {
+  border-color: var(--dark);
+  background: #fff3dc;
+  box-shadow: inset 3px 0 0 var(--red);
+}
+
 .zone-nav {
   margin-top: 16px;
   padding: 12px;
@@ -3830,6 +3910,23 @@ ul {
 
   .zone-coach-grid {
     grid-template-columns: 1fr;
+  }
+
+  .zone-study-steps,
+  .zone-goal-grid {
+    display: flex;
+    gap: 8px;
+    margin-inline: -12px;
+    padding: 0 12px 4px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .zone-study-steps article,
+  .zone-goal-grid a {
+    flex: 0 0 min(72vw, 280px);
+    scroll-snap-align: start;
   }
 
 }

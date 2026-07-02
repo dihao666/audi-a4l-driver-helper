@@ -706,6 +706,96 @@ function renderZoneNavigator(currentZoneId) {
   `;
 }
 
+const zoneGoalActions = {
+  mirror: [
+    ["后视镜不自动打开", "后视镜不自动打开"],
+    ["锁车不自动折叠", "锁车后视镜不自动合拢"],
+    ["后视镜看不清", "后视镜加热怎么用"],
+  ],
+  door: [
+    ["后排车窗按不动", "后排车窗按键没反应"],
+    ["找车窗/儿童锁", "后排车窗按键没反应"],
+    ["座椅记忆变了", "座椅自己变了"],
+  ],
+  wheel: [
+    ["胎压灯亮了", "胎压灯亮了"],
+    ["轮胎看起来亏气", "胎压灯亮了"],
+    ["胎压怎么复位", "胎压灯亮了"],
+  ],
+  fuel: [
+    ["油箱盖打不开", "油箱盖打不开"],
+    ["准备加油", "油箱盖打不开"],
+    ["确认燃油标号", "油箱盖打不开"],
+  ],
+  trunk: [
+    ["后备厢打不开", "后备厢打不开"],
+    ["找三角牌", "三角牌在哪里"],
+    ["应急物品在哪", "三角牌在哪里"],
+  ],
+  hood: [
+    ["机盖怎么开", "机盖怎么开"],
+    ["加玻璃水", "玻璃水加在哪里"],
+    ["机油/水温报警", "机油灯亮了"],
+  ],
+  steering: [
+    ["调方向盘", "方向盘怎么调"],
+    ["看仪表警告灯", "胎压灯亮了"],
+    ["雨刮不会自动", "雨刮不会自动工作"],
+  ],
+  center: [
+    ["连蓝牙/CarPlay", "蓝牙连不上"],
+    ["找车辆设置", "锁车后视镜不自动合拢"],
+    ["开双闪", "双闪在哪里"],
+    ["空调除雾", "前挡风玻璃起雾"],
+  ],
+  console: [
+    ["P/R/N/D 怎么用", "P档是什么意思"],
+    ["电子手刹", "电子手刹怎么用"],
+    ["自动驻车", "自动驻车怎么用"],
+    ["倒车雷达没声音", "倒车雷达没声音"],
+  ],
+  roof: [
+    ["天窗忘关", "天窗忘关"],
+    ["遮阳帘怎么关", "天窗忘关"],
+    ["阅读灯/头顶按钮", "天窗忘关"],
+  ],
+};
+
+function renderZoneStudyPath(zoneId) {
+  const hasPhoto = Boolean(zonePhotos[zoneId]);
+  const hasDiagram = Boolean(zoneDiagrams[zoneId]);
+  const photoText = hasPhoto ? "认清实车上的真实位置和按钮形状。" : "这个区域暂时没有实车照片，先看模型和示意。";
+  const diagramText = hasDiagram ? "用示意图理解按钮之间的关系。" : "这个区域暂时没有示意图，先看下方部件索引。";
+  return `
+    <section class="zone-study-path" aria-label="推荐查看顺序">
+      <span>推荐顺序</span>
+      <div class="zone-study-steps">
+        <article class="${hasPhoto ? "available" : "muted"}"><b>1. 先看实车照片</b><p>${photoText}</p></article>
+        <article class="${hasDiagram ? "available" : "muted"}"><b>2. 再看示意图</b><p>${diagramText}</p></article>
+        <article class="available"><b>3. 最后看教程</b><p>点目标按钮或编号索引，进入具体操作步骤。</p></article>
+      </div>
+    </section>
+  `;
+}
+
+function renderZoneGoalActions(zoneId) {
+  const actions = zoneGoalActions[zoneId] || [];
+  if (!actions.length) return "";
+  return `
+    <section class="zone-goals" aria-label="我想做什么">
+      <span>我想做什么</span>
+      <div class="zone-goal-grid">
+        ${actions.map(([label, query]) => `
+          <a href="./index.html?query=${encodeURIComponent(query)}">
+            <strong>${label}</strong>
+            <small>打开教程</small>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 const exteriorGroup = new THREE.Group();
 const interiorGroup = new THREE.Group();
 scene.add(exteriorGroup, interiorGroup);
@@ -867,6 +957,8 @@ function setPanel(zoneId) {
     <div class="part-list">
       ${zone.parts.map((part) => `<button type="button" class="part-pill">${part}</button>`).join("")}
     </div>
+    ${renderZoneStudyPath(zoneId)}
+    ${renderZoneGoalActions(zoneId)}
     ${renderZoneNavigator(zoneId)}
     ${renderZoneMedia(zoneId)}
     <div class="zone-actions">
