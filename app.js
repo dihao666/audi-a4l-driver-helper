@@ -4100,6 +4100,10 @@ function scrollToResults(behavior = "smooth") {
   document.querySelector(".layout")?.scrollIntoView({ behavior, block: "start" });
 }
 
+function shouldAutoScrollOnLoad() {
+  return window.matchMedia("(max-width: 860px)").matches;
+}
+
 function setQuery(query) {
   if (els.query) els.query.value = query;
   const url = new URL(window.location.href);
@@ -4170,7 +4174,7 @@ function init() {
   renderRiskBoard();
   if (showCoverageDebug) renderCoverageBoard();
   updateResults();
-  if (query) window.setTimeout(() => scrollToResults("auto"), 80);
+  if (query && shouldAutoScrollOnLoad()) window.setTimeout(() => scrollToResults("auto"), 80);
 }
 
 bindEvents();
