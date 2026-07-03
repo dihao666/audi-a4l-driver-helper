@@ -4138,6 +4138,14 @@ ul {
     min-height: 0;
   }
 
+  .detail {
+    order: 1;
+  }
+
+  .list {
+    order: 2;
+  }
+
   .result-guide {
     padding: 13px;
   }
