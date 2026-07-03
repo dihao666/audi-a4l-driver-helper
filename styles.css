@@ -473,6 +473,20 @@ h1 {
   line-height: 1.28;
 }
 
+.icon-kind {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 6px;
+  padding: 3px 7px;
+  color: rgba(31, 36, 39, 0.72);
+  background: rgba(31, 36, 39, 0.06);
+  border: 1px solid rgba(31, 36, 39, 0.08);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
 .icon-card small,
 .issue-icon-grid small {
   display: block;
@@ -503,6 +517,23 @@ h1 {
   font-weight: 950;
   letter-spacing: 0.03em;
   line-height: 1;
+}
+
+.icon-mark svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-mark svg text {
+  fill: currentColor;
+  stroke: none;
+  font-size: 13px;
+  font-weight: 950;
 }
 
 .icon-red {

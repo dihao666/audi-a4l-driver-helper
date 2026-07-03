@@ -3179,6 +3179,40 @@ const issueIconMap = {
   "bluetooth-carplay-connect": ["bluetooth"],
 };
 
+const iconDisplayMeta = {
+  "tpms": { kind: "仪表警告灯", pictogram: "tpms" },
+  "oil": { kind: "仪表警告灯", pictogram: "oil" },
+  "coolant": { kind: "仪表警告灯", pictogram: "coolant" },
+  "front-defog": { kind: "实体按钮图标", pictogram: "frontDefog" },
+  "rear-defog": { kind: "实体按钮图标", pictogram: "rearDefog" },
+  "washer": { kind: "按钮/发动机舱标识", pictogram: "washer" },
+  "high-beam": { kind: "仪表指示灯", pictogram: "highBeam" },
+  "auto-light": { kind: "灯光旋钮文字", pictogram: "autoLight" },
+  "parking-brake": { kind: "按钮/仪表提示", pictogram: "parkingBrake" },
+  "auto-hold": { kind: "实体按钮文字", pictogram: "autoHold" },
+  "hazard": { kind: "实体按钮图标", pictogram: "hazard" },
+  "seatbelt": { kind: "仪表提示灯", pictogram: "seatbelt" },
+  "parking-assist": { kind: "按钮/泊车提示", pictogram: "parkingAssist" },
+  "bluetooth": { kind: "中控连接图标", pictogram: "bluetooth" }
+};
+
+const iconPictograms = {
+  tpms: `<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 16c-3 5-4 12-2 20h24c2-8 1-15-2-20"/><path d="M18 14c4-3 8-3 12 0"/><path d="M24 17v11"/><circle cx="24" cy="34" r="1.7"/></svg>`,
+  oil: `<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 26h22l6 6"/><path d="M15 20h12l5 6"/><path d="M18 20l4-5"/><path d="M34 34c3 0 4-2 4-4"/><path d="M18 30h10"/></svg>`,
+  coolant: `<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v22"/><circle cx="24" cy="34" r="6"/><path d="M18 40c-3 0-3-2-6-2s-3 2-6 2"/><path d="M42 40c-3 0-3-2-6-2s-3 2-6 2"/></svg>`,
+  frontDefog: `<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 34c2-13 8-22 24-24"/><path d="M10 36h28"/><path d="M18 17c-5 5-6 11-6 17"/><path d="M20 33l5-8"/><path d="M27 34l5-9"/></svg>`,
+  rearDefog: `<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="10" width="28" height="28" rx="3"/><path d="M18 16c-4 4 4 5 0 9s4 5 0 9"/><path d="M25 16c-4 4 4 5 0 9s4 5 0 9"/><path d="M32 16c-4 4 4 5 0 9s4 5 0 9"/></svg>`,
+  washer: `<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 30c7-7 23-7 30 0"/><path d="M15 30l-4 8h26l-4-8"/><path d="M20 19l4-5 4 5"/><path d="M24 14v12"/><path d="M14 17l-4-4"/><path d="M34 17l4-4"/></svg>`,
+  highBeam: `<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M28 12c7 2 10 7 10 12s-3 10-10 12V12Z"/><path d="M8 16h14"/><path d="M8 22h14"/><path d="M8 28h14"/><path d="M8 34h14"/></svg>`,
+  autoLight: `<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="10"/><path d="M24 8V4M24 44v-4M8 24H4M44 24h-4M13 13l-3-3M38 38l-3-3M35 13l3-3M10 38l3-3"/><text x="24" y="28" text-anchor="middle">A</text></svg>`,
+  parkingBrake: `<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="13"/><path d="M10 12c-4 7-4 17 0 24"/><path d="M38 12c4 7 4 17 0 24"/><text x="24" y="29" text-anchor="middle">P</text></svg>`,
+  autoHold: `<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="13"/><path d="M10 12c-4 7-4 17 0 24"/><path d="M38 12c4 7 4 17 0 24"/><text x="24" y="28" text-anchor="middle">H</text></svg>`,
+  hazard: `<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8 42 38H6L24 8Z"/><path d="M24 18v10"/><circle cx="24" cy="33" r="1.7"/></svg>`,
+  seatbelt: `<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="10" r="4"/><path d="M18 18h12l5 20"/><path d="M13 38h22"/><path d="M15 16l18 22"/></svg>`,
+  parkingAssist: `<svg viewBox="0 0 48 48" aria-hidden="true"><text x="12" y="30">P</text><path d="M26 16c3 3 3 13 0 16"/><path d="M32 12c5 6 5 18 0 24"/><path d="M38 8c7 9 7 23 0 32"/></svg>`,
+  bluetooth: `<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M22 6v36l13-11-13-11L35 9 22 6Z"/><path d="M12 15l26 18"/><path d="M12 33l26-18"/></svg>`
+};
+
 const $ = (selector) => document.querySelector(selector);
 const els = {
   query: $("#query"),
@@ -3308,7 +3342,9 @@ function renderOnboarding() {
 }
 
 function renderIconMark(icon) {
-  return `<span class="icon-mark icon-${escapeHtml(icon.tone)}">${escapeHtml(icon.symbol)}</span>`;
+  const meta = iconDisplayMeta[icon.id] || {};
+  const pictogram = iconPictograms[meta.pictogram] || escapeHtml(icon.symbol);
+  return `<span class="icon-mark icon-${escapeHtml(icon.tone)}">${pictogram}</span>`;
 }
 
 function renderIconGuide() {
@@ -3317,6 +3353,7 @@ function renderIconGuide() {
     <a class="icon-card" href="./index.html?query=${encodeURIComponent(icon.query)}">
       ${renderIconMark(icon)}
       <span>
+        <b class="icon-kind">${escapeHtml(iconDisplayMeta[icon.id]?.kind || "图标提示")}</b>
         <strong>${escapeHtml(icon.name)}</strong>
         <small>${escapeHtml(icon.meaning)}</small>
         <em>${escapeHtml(icon.source)}</em>
@@ -3340,6 +3377,7 @@ function renderIssueIcons(issue) {
           <a href="./index.html?query=${encodeURIComponent(icon.query)}">
             ${renderIconMark(icon)}
             <span>
+              <b class="icon-kind">${escapeHtml(iconDisplayMeta[icon.id]?.kind || "图标提示")}</b>
               <strong>${escapeHtml(icon.name)}</strong>
               <small>${escapeHtml(icon.when)}</small>
             </span>
