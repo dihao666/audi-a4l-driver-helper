@@ -4073,9 +4073,8 @@ function renderDetail(issue) {
       <span class="pill ${riskClass(issue)}">${escapeHtml(riskText[issue.risk])}</span>
       <span class="pill">${escapeHtml(issue.category)}</span>
     </div>
-    ${renderActionSummary(issue)}
-    ${renderIssueIcons(issue)}
     ${isRed ? renderRedSafetyPanel(issue) : renderBeginnerPanel(issue)}
+    ${renderIssueIcons(issue)}
     <section class="answer">${escapeHtml(issue.quickAnswer)}</section>
     ${renderManualRefs(issue)}
     <section class="columns ${hasLessonFlow || isRed ? "support-layer" : ""}">
