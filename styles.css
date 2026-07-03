@@ -239,6 +239,7 @@ h1 {
 .beginner-guide,
 .onboarding-tasks,
 .risk-board,
+.icon-board,
 .coverage-board {
   margin: 24px 0;
   padding: 20px;
@@ -430,6 +431,98 @@ h1 {
 .task-actions a:hover {
   border-color: var(--dark);
   background: #fff3dc;
+}
+
+.icon-board {
+  background:
+    linear-gradient(135deg, rgba(31, 36, 39, 0.06), transparent 42%),
+    rgba(255, 250, 241, 0.9);
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.icon-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  min-height: 124px;
+  padding: 13px;
+  color: var(--ink);
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.icon-card:hover {
+  border-color: var(--dark);
+  background: #fff8ea;
+}
+
+.icon-card strong,
+.issue-icon-grid strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--dark);
+  font-size: 14px;
+  line-height: 1.28;
+}
+
+.icon-card small,
+.issue-icon-grid small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.icon-card em {
+  display: block;
+  margin-top: 8px;
+  color: rgba(109, 102, 94, 0.84);
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1.45;
+}
+
+.icon-mark {
+  display: inline-grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  color: var(--dark);
+  background: #fffaf1;
+  border: 2px solid currentColor;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+
+.icon-red {
+  color: var(--red);
+  background: rgba(178, 31, 45, 0.08);
+}
+
+.icon-yellow {
+  color: #9a6a16;
+  background: rgba(200, 145, 44, 0.11);
+}
+
+.icon-green {
+  color: var(--green);
+  background: rgba(56, 122, 79, 0.09);
+}
+
+.icon-blue {
+  color: #1f5b9d;
+  background: rgba(31, 91, 157, 0.09);
 }
 
 .risk-board {
@@ -2450,6 +2543,58 @@ button {
   background: #fff3dc;
 }
 
+.issue-icons {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 14px;
+  background: #fffdf8;
+  border: 1px dashed rgba(31, 36, 39, 0.22);
+  border-radius: 8px;
+}
+
+.issue-icons-head {
+  display: grid;
+  gap: 4px;
+}
+
+.issue-icons-head span {
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.issue-icons-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.issue-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.issue-icon-grid a {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  color: var(--ink);
+  background: #fffaf1;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.issue-icon-grid a:hover {
+  border-color: var(--dark);
+  background: #fff3dc;
+}
+
 .emergency-banner {
   display: grid;
   gap: 12px;
@@ -3684,6 +3829,7 @@ ul {
   .beginner-guide,
   .onboarding-tasks,
   .risk-board,
+  .icon-board,
   .search-panel {
     margin: 14px 0;
     padding: 14px;
@@ -3710,6 +3856,7 @@ ul {
   .intent-grid,
   .guide-grid,
   .task-grid,
+  .icon-grid,
   .risk-board-grid {
     display: flex;
     grid-template-columns: none;
@@ -3728,6 +3875,7 @@ ul {
   .intent-grid::-webkit-scrollbar,
   .guide-grid::-webkit-scrollbar,
   .task-grid::-webkit-scrollbar,
+  .icon-grid::-webkit-scrollbar,
   .risk-board-grid::-webkit-scrollbar,
   .search-examples::-webkit-scrollbar,
   .chip-tabs::-webkit-scrollbar,
@@ -3738,6 +3886,7 @@ ul {
   .intent-grid::-webkit-scrollbar-thumb,
   .guide-grid::-webkit-scrollbar-thumb,
   .task-grid::-webkit-scrollbar-thumb,
+  .icon-grid::-webkit-scrollbar-thumb,
   .risk-board-grid::-webkit-scrollbar-thumb,
   .search-examples::-webkit-scrollbar-thumb,
   .chip-tabs::-webkit-scrollbar-thumb,
@@ -3749,6 +3898,7 @@ ul {
   .intent-grid::after,
   .guide-grid::after,
   .task-grid::after,
+  .icon-grid::after,
   .risk-board-grid::after {
     content: "";
     flex: 0 0 4px;
@@ -3757,6 +3907,7 @@ ul {
   .intent-card,
   .guide-card,
   .task-card,
+  .icon-card,
   .risk-board-grid > .box,
   .risk-column {
     flex: 0 0 min(82vw, 340px);
@@ -3797,6 +3948,14 @@ ul {
 
   .task-card h3 {
     font-size: 21px;
+  }
+
+  .icon-card {
+    min-height: 150px;
+  }
+
+  .issue-icon-grid {
+    grid-template-columns: 1fr;
   }
 
   .task-card dl {

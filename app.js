@@ -3144,6 +3144,41 @@ let activeIssue = null;
 let chipsExpanded = false;
 let activeChipGroup = 0;
 
+const iconCards = [
+  { id: "tpms", symbol: "TP", tone: "yellow", name: "胎压警告", meaning: "轮胎压力低于储存值或胎压系统提示。", when: "胎压灯亮、补气后要复位。", query: "胎压灯亮了", source: "说明书轮胎压力监控章节" },
+  { id: "oil", symbol: "OIL", tone: "red", name: "机油压力/机油提示", meaning: "红色机油压力警告要立即停车；黄色油位提示再按步骤检查。", when: "仪表出现机油相关警告。", query: "机油灯亮了", source: "说明书机油/发动机警告章节" },
+  { id: "coolant", symbol: "TEMP", tone: "red", name: "冷却液/水温", meaning: "冷却液温度高或冷却系统提示，热车时不要打开冷却液盖。", when: "水温、冷却液或红色温度警告。", query: "冷却液提示", source: "说明书冷却液温度章节" },
+  { id: "front-defog", symbol: "FRONT", tone: "yellow", name: "前挡除雾/除霜", meaning: "让风集中吹向前挡风玻璃，优先恢复前方视线。", when: "前挡起雾、结霜、看不清。", query: "前挡风玻璃起雾", source: "说明书空调/除雾章节" },
+  { id: "rear-defog", symbol: "REAR", tone: "yellow", name: "后挡加热", meaning: "用电热丝加热后挡风玻璃，图标常见为长方形玻璃加波浪线。", when: "后挡玻璃起雾或有霜。", query: "前挡风玻璃起雾", source: "说明书空调/除雾章节" },
+  { id: "washer", symbol: "WASH", tone: "green", name: "玻璃水/喷水", meaning: "前挡玻璃加喷水的图案，用来识别玻璃水壶盖或喷水功能。", when: "加玻璃水、喷水喷不出来。", query: "玻璃水加在哪里", source: "说明书清洗液/发动机舱章节" },
+  { id: "high-beam", symbol: "HIGH", tone: "blue", name: "远光灯", meaning: "远光开启时仪表常见蓝色提示，要确认不会影响对向车和行人。", when: "夜间空旷道路或远光辅助提示。", query: "远光灯辅助", source: "说明书灯光章节" },
+  { id: "auto-light", symbol: "AUTO", tone: "green", name: "AUTO 灯光", meaning: "车灯自动模式，但雨雾、隧道、夜间仍要看实际灯光是否合适。", when: "不知道车灯开关该放哪。", query: "车灯AUTO", source: "说明书车灯章节" },
+  { id: "parking-brake", symbol: "P", tone: "red", name: "电子手刹/驻车制动", meaning: "停车后把车刹住，离车前要确认 P 档和驻车提示。", when: "找带 P 的驻车按钮或仪表驻车提示。", query: "电子手刹怎么用", source: "说明书驻车制动章节" },
+  { id: "auto-hold", symbol: "HOLD", tone: "green", name: "AUTO HOLD", meaning: "自动驻车，短暂停车时帮你保持刹车，不等于离车停车。", when: "等红灯、坡道短停、自动驻车灯亮。", query: "自动驻车怎么用", source: "说明书自动驻车章节" },
+  { id: "hazard", symbol: "△", tone: "red", name: "双闪/危险报警灯", meaning: "提醒别人车辆异常或处在特殊状态，不是随便停车许可。", when: "故障停车、临时危险、能见度差异常低速。", query: "双闪在哪里", source: "说明书危险报警灯章节" },
+  { id: "seatbelt", symbol: "BELT", tone: "yellow", name: "安全带提示", meaning: "提示某个座位安全带未系或座椅上物品触发识别。", when: "安全带提示一直响。", query: "安全带提示", source: "说明书乘员保护/安全带章节" },
+  { id: "parking-assist", symbol: "P)))", tone: "yellow", name: "驻车辅助/雷达", meaning: "倒车或低速停车时提示障碍物，声音可能被静音或条件未触发。", when: "倒车雷达没声音、驻车辅助开关在哪。", query: "倒车雷达没声音", source: "说明书驻车辅助章节" },
+  { id: "bluetooth", symbol: "BT", tone: "blue", name: "蓝牙/电话", meaning: "手机、电话、媒体连接入口，CarPlay 也常依赖蓝牙或 Wi-Fi。", when: "蓝牙或 CarPlay 连不上。", query: "蓝牙连不上", source: "说明书 MMI/电话连接章节" },
+];
+
+const issueIconMap = {
+  "tire-pressure-warning": ["tpms"],
+  "engine-oil-warning": ["oil"],
+  "coolant-warning": ["coolant"],
+  "front-defog": ["front-defog", "rear-defog"],
+  "washer-fluid-location": ["washer"],
+  "high-beam-assist": ["high-beam"],
+  "auto-light-mode": ["auto-light", "high-beam"],
+  "parking-brake-auto-hold": ["parking-brake", "auto-hold"],
+  "gear-selector-prnd": ["parking-brake"],
+  "hazard-lights": ["hazard"],
+  "seatbelt-warning": ["seatbelt"],
+  "parking-assist-switch": ["parking-assist"],
+  "auto-parking-radar-mute": ["parking-assist"],
+  "reverse-camera-sensor": ["parking-assist"],
+  "bluetooth-carplay-connect": ["bluetooth"],
+};
+
 const $ = (selector) => document.querySelector(selector);
 const els = {
   query: $("#query"),
@@ -3154,6 +3189,7 @@ const els = {
   resultCount: $("#resultCount"),
   resultGuide: $("#resultGuide"),
   onboardingTasks: $("#onboardingTasks"),
+  iconGuide: $("#iconGuide"),
   riskBoard: $("#riskBoard"),
   coverageSummary: $("#coverageSummary"),
   coverageBoard: $("#coverageBoard"),
@@ -3269,6 +3305,49 @@ function renderOnboarding() {
       <button type="button" data-query="${escapeHtml(task.target)}">打开教程</button>
     </article>
   `).join("");
+}
+
+function renderIconMark(icon) {
+  return `<span class="icon-mark icon-${escapeHtml(icon.tone)}">${escapeHtml(icon.symbol)}</span>`;
+}
+
+function renderIconGuide() {
+  if (!els.iconGuide) return;
+  els.iconGuide.innerHTML = iconCards.map((icon) => `
+    <a class="icon-card" href="./index.html?query=${encodeURIComponent(icon.query)}">
+      ${renderIconMark(icon)}
+      <span>
+        <strong>${escapeHtml(icon.name)}</strong>
+        <small>${escapeHtml(icon.meaning)}</small>
+        <em>${escapeHtml(icon.source)}</em>
+      </span>
+    </a>
+  `).join("");
+}
+
+function renderIssueIcons(issue) {
+  const ids = issueIconMap[issue.id] || [];
+  const icons = ids.map((id) => iconCards.find((icon) => icon.id === id)).filter(Boolean);
+  if (!icons.length) return "";
+  return `
+    <section class="issue-icons" aria-label="相关图标">
+      <div class="issue-icons-head">
+        <span>相关图标</span>
+        <p>图标含义按说明书和已核对教程整理；实车图案细节以你的仪表/按钮为准。</p>
+      </div>
+      <div class="issue-icon-grid">
+        ${icons.map((icon) => `
+          <a href="./index.html?query=${encodeURIComponent(icon.query)}">
+            ${renderIconMark(icon)}
+            <span>
+              <strong>${escapeHtml(icon.name)}</strong>
+              <small>${escapeHtml(icon.when)}</small>
+            </span>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
 }
 
 function renderCoverageBoard() {
@@ -3957,6 +4036,7 @@ function renderDetail(issue) {
       <span class="pill">${escapeHtml(issue.category)}</span>
     </div>
     ${renderActionSummary(issue)}
+    ${renderIssueIcons(issue)}
     ${isRed ? renderRedSafetyPanel(issue) : renderBeginnerPanel(issue)}
     <section class="answer">${escapeHtml(issue.quickAnswer)}</section>
     ${renderManualRefs(issue)}
@@ -4049,6 +4129,7 @@ function init() {
   const showCoverageDebug = setupDevPanels();
   renderChips();
   renderOnboarding();
+  renderIconGuide();
   renderRiskBoard();
   if (showCoverageDebug) renderCoverageBoard();
   updateResults();
